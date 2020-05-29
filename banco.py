@@ -3,6 +3,8 @@ import time
 import random
 import sys
 
+#TESTADO EM PYTHON 3.5
+
 #o programa aceita 3 parametros
 #modo de execucao das threads
 #quantidade a tranferir
@@ -10,8 +12,8 @@ import sys
 
 # banco.py 0 50 v
 
-#executa o codigo com a vulnerabilidade "banco.py 2 50 v"
-#executar o codigo corretamente "banco.py 2 10 v"
+#executa o codigo com a vulnerabilidade "banco.py 1 50 v"
+#executar o codigo corretamente "banco.py 3 10 v"
 
 class Cliente:
     def __init__(self, nome, grana):
@@ -23,6 +25,7 @@ class Cliente:
 
 #funcao de tranferencia de dinheiro
 def tranferencia(clienteA, dinheiroTransferir, clienteB):
+    #converte parametro para int
     dinheiroTransferir = int(dinheiroTransferir)
     dinheiroInicial = clienteA.grana
 
@@ -51,7 +54,6 @@ mateus = Cliente("Mateus", 1000)
 #exemplo race condition 
 #0 mostra uma tranferencia comum
 if(sys.argv[1] == '0'):
-    print("E")
     tranferencia(daniel, sys.argv[2], mateus)
 
 #mostra força bruta de tranferencia para forçar race condition
