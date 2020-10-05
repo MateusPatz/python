@@ -3,17 +3,18 @@ import time
 import random
 import sys
 
-#TESTADO EM PYTHON 3.5
+#O script listado foi desenvolvido utilizando python3.5
 
-#o programa aceita 3 parametros
-#modo de execucao das threads
-#quantidade a tranferir
-#modo verboso
+#O objetivo do script é simular transferencias bancarias
+#forçando 'race conditions' para exemplificar a vulnerabilidade
 
-# banco.py 0 50 v
+#O script pode ser utilizado da seguinte maneira:
 
-#executa o codigo com a vulnerabilidade "banco.py 1 50 v"
-#executar o codigo corretamente "banco.py 3 10 v"
+# banco.py 0 50 -> transferencia comum
+# banco.py 1 50 -> Transferencia utilizando Threads não organizadas
+# banco.py 2 50 -> Transferencia utilizando Threads não organizadas em duas direções
+# banco.py 3 50 -> transferencia utilizando Threads alinhadas
+#podemos utilizar o 'v' como ultimo parametro para visualizar de maneira verbosa
 
 class Cliente:
     def __init__(self, nome, grana):
